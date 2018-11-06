@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Cashport Demo</title>
+</head>
+<body>
+<div id="root">
+    <div id="cashport-root-component"></div>
+    <div id="my-content" style="display: none">
+        <h2><span class="handle">$</span><span class="handle" id="handle"></span> &sdot; <span class="full-name" id="full-name"></span></h2>
+        <ul>
+            <li><b>AuthToken</b>: <span id="auth-token"></span></li>
+            <li><b>ExpirationTimestamp</b>: <span id="expiration-timestamp"></span></li>
+            <li><b>SpendLimitInSatoshis</b>: <span id="spend-limit"></span></li>
+            <li><b>Email</b>: <span id="email"></span></li>
+        </ul>
+        <button id="btn-donate" class="btn">Tap to donate 25 bits to $eatBCH</button>
+        <button id="btn-logout" class="btn">Log out</button>
+    </div>
+    <div id="bottom">
+        <p>Using app_id = <span id="app-id"></span></p>
+    </div>
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>
