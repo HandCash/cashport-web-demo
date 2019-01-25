@@ -54,20 +54,20 @@ function setMyContent(authorization) {
 }
 function setupCashportDonateButton() {
     var btnDonate = document.getElementById("btn-donate");
-    btnDonate.innerText = 'Tap to donate 25 bits to $eatBCH';
+    btnDonate.innerText = 'Tap to donate 100 bits to $handcash';
     btnDonate.addEventListener('click', (event) => {
         if (!isButtonEnabled) {
             isButtonEnabled = true;
-            btnDonate.innerText = 'Tap to donate 25 bits to $eatBCH';
+            btnDonate.innerText = 'Tap to donate 100 bits to $handcash';
         }
         else {
-            sendPayToHandlePaymentRequest("eatBCH");
+            sendPayToHandlePaymentRequest("handcash");
         }
     });
     function sendPayToHandlePaymentRequest(handle) {
         let request = cashport_sdk_1.SignTransactionRequestBuilder.useApiId(appId)
             .withCredentials(grantedAuthorization.personalInfo.handle, grantedAuthorization.authToken, grantedAuthorization.channelId)
-            .addPayment(cashport_sdk_1.PaymentRequestFactory.create().getPayToHandle(handle, 2500))
+            .addPayment(cashport_sdk_1.PaymentRequestFactory.create().getPayToHandle(handle, 10000))
             .build();
         console.log(request);
         cashport.sendSignTransactionRequest(request, {

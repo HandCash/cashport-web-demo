@@ -65,20 +65,20 @@ function setMyContent(authorization: GrantedAuthorization): void {
 
 function setupCashportDonateButton(): void {
     var btnDonate = document.getElementById("btn-donate");
-    btnDonate.innerText = 'Tap to donate 25 bits to $eatBCH';
+    btnDonate.innerText = 'Tap to donate 100 bits to $handcash';
     btnDonate.addEventListener('click', (event) => {
         if (!isButtonEnabled) {
             isButtonEnabled = true;
-            btnDonate.innerText = 'Tap to donate 25 bits to $eatBCH';
+            btnDonate.innerText = 'Tap to donate 100 bits to $handcash';
         } else {
-            sendPayToHandlePaymentRequest("eatBCH");
+            sendPayToHandlePaymentRequest("handcash");
         }
     });
 
     function sendPayToHandlePaymentRequest(handle: string): void {
         let request = SignTransactionRequestBuilder.useApiId(appId)
             .withCredentials(grantedAuthorization.personalInfo.handle, grantedAuthorization.authToken, grantedAuthorization.channelId)
-            .addPayment(PaymentRequestFactory.create().getPayToHandle(handle, 2500))
+            .addPayment(PaymentRequestFactory.create().getPayToHandle(handle, 10000))
             .build();
         console.log(request);
         cashport.sendSignTransactionRequest(request, {
